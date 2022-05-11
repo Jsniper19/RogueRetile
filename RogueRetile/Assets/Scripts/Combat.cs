@@ -7,11 +7,27 @@ public class Combat : MonoBehaviour
     public PlayerController PCon;
     public GameObject AimDirection;
     public GameObject Slash;
-    //public GameObject Arrow;
-    //public GameObject Blast;
     public Vector3 Target;
     public Camera Cam;
     public bool cool;
+
+    public float damage;
+    public float modDamage;
+    public float startDamage;
+    public float slashSize;
+    public float modSize;
+    public float startSize;
+    public float cooldown;
+    public float modCool;
+    public float startCool;
+    public float minCooldown;
+
+    private void Start()
+    {
+        damage = startDamage;
+        slashSize = startSize;
+        cooldown = startCool;
+    }
 
     private void Update()
     {
@@ -34,13 +50,8 @@ public class Combat : MonoBehaviour
     IEnumerator AttackCoroutine()
     {
         cool = false;
-        if (PCon.sword)
-        { SwordAttack(); }
-        if (PCon.bow)
-        { BowAttack(); }
-        if (PCon.magic)
-        { MagicAttack(); }
-        yield return new WaitForSeconds(1 / PCon.cooldown);
+        SwordAttack();
+        yield return new WaitForSeconds(cooldown);
         cool = true;
     }
 
@@ -48,20 +59,18 @@ public class Combat : MonoBehaviour
     {
         GameObject clone = Instantiate(Slash, transform.position, transform.rotation);
         clone.GetComponent<Rigidbody2D>().AddForce(transform.up * PCon.slashSpeed, ForceMode2D.Impulse);
-        clone.transform.localScale = new Vector3(1 * PCon.slashSize, 0.1f * PCon.slashSize, 1);
+        clone.transform.localScale = new Vector3(1 * slashSize, 0.1f * slashSize, 1);
+        clone.GetComponent<DamageEnemy>().damage = damage;
     }
 
-    void BowAttack()
+    public void equip()
     {
-        GameObject clone = Instantiate(Slash, transform.position, transform.rotation);
-        clone.GetComponent<Rigidbody2D>().AddForce(transform.up * PCon.slashSpeed, ForceMode2D.Impulse);
-        clone.transform.localScale = new Vector3(0.1f * PCon.slashSize, 1 * PCon.slashSize, 1);
-    }
-
-    void MagicAttack()
-    {
-        GameObject clone = Instantiate(Slash, transform.position, transform.rotation);
-        //clone.GetComponent<Rigidbody2D>().AddForce(transform.up * PCon.slashSpeed, ForceMode2D.Impulse);
-        clone.transform.localScale = new Vector3(1.5f * PCon.slashSize, 1.5f * PCon.slashSize, 1);
+        if (cooldown < minCooldown)
+        { cooldown = startCool - modCool * PCon.upgrades; }
+        else
+        { cooldown = minCooldown; }
+        slashSize = startSize + modSize * PCon.upgrades;
+        damage = startDamage + modDamage * PCon.upgrades;
+        cool = true;
     }
 }

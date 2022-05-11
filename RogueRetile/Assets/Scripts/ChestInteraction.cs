@@ -24,9 +24,9 @@ public class ChestInteraction : MonoBehaviour
     void OpenChest()
     {
         AddStat();
-        PCon.progress += 3;
+        PCon.upgrades += 1;
         Chest.SetActive(false);
-        //Debug.Log("opened");
+        Debug.Log("opened");
     }
 
     //stat upgrades

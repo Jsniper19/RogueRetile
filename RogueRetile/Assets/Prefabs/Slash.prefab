@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 909017596218499241}
   - component: {fileID: 8870909262213045462}
+  - component: {fileID: 4220239601919742253}
   - component: {fileID: 5389011903543712293}
   - component: {fileID: 808177263700708455}
   - component: {fileID: 8868930088323648658}
@@ -86,6 +87,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4220239601919742253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4753540140743665933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11828029974ca794c84c6f06f257b14f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
 --- !u!50 &5389011903543712293
 Rigidbody2D:
   serializedVersion: 4
@@ -134,7 +148,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PCT: {fileID: 0}
+  UIM: {fileID: 0}
+  PCon: {fileID: 0}
   isTile: 0
+  tileBreakTime: 0
+  tileBreakTimeCurrent: 0
+  isEgg: 0
+  isHatched: 0
 --- !u!68 &-7946154817763538490
 EdgeCollider2D:
   m_ObjectHideFlags: 0

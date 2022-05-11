@@ -10,9 +10,6 @@ public class PlayerController : MonoBehaviour
     //upgradeable stats
     public float health;
     public float armour;
-    public float slashSize;
-    public float damage;
-    public float cooldown;
 
     //non upgradeable stats
     public float slashSpeed;
@@ -21,11 +18,13 @@ public class PlayerController : MonoBehaviour
     public float progress;
     public float progressStep;
     public bool alive = true;
+    public int upgrades;
 
     //weps
-    public bool sword;
-    public bool bow;
-    public bool magic;
+    public GameObject sword;
+    public GameObject pivot;
+    public GameObject Orbit;
+    public GameObject Blast;
 
     private void Start()
     {
@@ -68,58 +67,26 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            if (health >= 0)
-            {
-                health = health - (damage / armour) * Time.deltaTime;
-            }
-            else
-            {
-                health = 0;
-            }
-        }
-    }
-
     public void WeaponSwap()
     {
         int wep = Random.Range(0, 3);
         if (wep == 0)
-        { Weapon1(); sword = true; }
-        else { sword = false; }
+        {
+            sword.SetActive(true);
+            sword.GetComponent<Combat>().equip();
+        }
+        else { sword.SetActive(false); }
         if (wep == 1)
-        { Weapon2(); bow = true; }
-        else { bow = false; }
+        {
+            pivot.SetActive(true);
+            Orbit.GetComponent<Weapon_Orbit>().equip();
+        }
+        else { pivot.SetActive(false); }
         if (wep == 2)
-        { Weapon3(); magic = true; }
-        else { magic = false; }
+        {
+            Blast.SetActive(true);
+            Blast.GetComponent<Weapon_Blast>().equip();
+        }
+        else { Blast.SetActive(false); }
     }
-
-    void Weapon1()
-    {
-        //sword
-        Debug.Log("Sword");
-        slashSize = progress * (3f / 6f);
-        damage = progress * (1f / 6f);
-        cooldown = progress * (2f / 6f);
-    }
-    void Weapon2()
-    {
-        //bow
-        Debug.Log("Bow");
-        slashSize = progress * (1f / 6f);
-        damage = progress * (2f / 6f);
-        cooldown = progress * (3f / 6f);
-    }
-    void Weapon3()
-    {
-        //magic
-        Debug.Log("Magic");
-        slashSize = progress * (2f / 6f);
-        damage = progress * (3f / 6f);
-        cooldown = progress * (1f / 6f);
-    }
-
 }

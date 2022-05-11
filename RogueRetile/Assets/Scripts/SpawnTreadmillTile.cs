@@ -16,6 +16,7 @@ public class SpawnTreadmillTile : MonoBehaviour
     public float third;
     [Header("enemy2")]
     public float fourth;
+    [Header("enemy3")]
     public float fifth;
 
     public float tileX;
@@ -38,6 +39,8 @@ public class SpawnTreadmillTile : MonoBehaviour
         { stage = 1; }
         else if (PCon.progress < 200)
         { stage = 2; }
+        else
+        { stage = 3; }
 
 
 
@@ -69,6 +72,33 @@ public class SpawnTreadmillTile : MonoBehaviour
             else
             {
                 fourth = 30;
+            }
+        }
+        else if (stage == 3)
+        {
+            if (first < 100 - (second + third + fourth + fifth))
+            {
+                first = PCon.progress - 90;
+            }
+            else
+            {
+                first = 100 - (second + third + fourth + fifth);
+            }
+            if (fourth < 50)
+            {
+                fourth = PCon.progress / 50;
+            }
+            else
+            {
+                fourth = 30;
+            }
+            if (fifth < 20)
+            {
+                fifth = PCon.progress / 100;
+            }
+            else
+            {
+                fifth = 20;
             }
         }
     }

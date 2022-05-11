@@ -6,10 +6,12 @@ public class EnemyController : MonoBehaviour
 {
     public TreadmillTiles TT;
     public PlayerController PCon;
+    public Rigidbody2D RB;
     public float enemySpeed;
     public float baseDamage;
     public float damage;
     public float health;
+    public float blastForce;
 
     private void Start()
     {
@@ -30,7 +32,13 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.CompareTag("Weapon"))
         {
-            health -= PCon.damage;
+            health -= collision.gameObject.GetComponent<DamageEnemy>().damage;
+        }
+        if (collision.CompareTag("Blast"))
+        {
+            Debug.Log("BOOM!");
+            health -= collision.gameObject.GetComponent<DamageEnemy>().damage;
+            RB.AddForce(transform.position - PCon.transform.position, ForceMode2D.Impulse);
         }
     }
 

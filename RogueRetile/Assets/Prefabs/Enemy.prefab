@@ -104,6 +104,8 @@ MonoBehaviour:
   isTile: 1
   tileBreakTime: 0
   tileBreakTimeCurrent: 0
+  isEgg: 0
+  isHatched: 0
 --- !u!114 &1452935493595595467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,9 +120,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TT: {fileID: 1963062548948175988}
   PCon: {fileID: 0}
+  RB: {fileID: 2171047924389620822, guid: d5f1dde4be52c224a8fc0c113940fa2e, type: 3}
   enemySpeed: 2
   baseDamage: 1
+  damage: 0
   health: 1
+  blastForce: 10
 --- !u!58 &-3666549180713348381
 CircleCollider2D:
   m_ObjectHideFlags: 0
