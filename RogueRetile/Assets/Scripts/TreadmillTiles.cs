@@ -6,6 +6,8 @@ public class TreadmillTiles : MonoBehaviour
 {
     public PlayerController_Treadmill PCT;
     public bool isTile;
+    public bool isEgg;
+    public bool isHatched;
 
     private void Start()
     {
@@ -57,6 +59,8 @@ public class TreadmillTiles : MonoBehaviour
         GameEvents.current.onPlayerMovesDown -= MoveDown;
         GameEvents.current.onPlayerMovesLeft -= MoveLeft;
         GameEvents.current.onPlayerMovesRight -= MoveRight;
+        if (isEgg)
+        { isHatched = true; }
         Destroy(gameObject);
     }
 }
