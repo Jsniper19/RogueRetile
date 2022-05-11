@@ -4,34 +4,34 @@ using UnityEngine;
 
 public class PlayerController_Treadmill : MonoBehaviour
 {
-    public float TileX;
-    public float TileY;
     public GameObject Player;
+    public float tileX;
+    public float tileY;
 
     private void Update()
     {
-        if (Player.transform.position.x < -TileX/2)
+        if (Player.transform.position.x < -tileX/2)
         {
             GameEvents.current.PlayerMovesLeft();
-            Player.transform.position = Player.transform.position + new Vector3 (TileX, 0, 0);
+            Player.transform.position = Player.transform.position + new Vector3 (tileX, 0, 0);
         }
 
-        if (Player.transform.position.y < -TileY/2)
+        if (Player.transform.position.y < -tileY/2)
         {
             GameEvents.current.PlayerMovesDown();
-            Player.transform.position = Player.transform.position + new Vector3(0, TileY, 0);
+            Player.transform.position = Player.transform.position + new Vector3(0, tileY, 0);
         }
 
-        if (Player.transform.position.x > TileX/2)
+        if (Player.transform.position.x > tileX/2)
         {
             GameEvents.current.PlayerMovesRight();
-            Player.transform.position = Player.transform.position - new Vector3(TileX, 0, 0);
+            Player.transform.position = Player.transform.position - new Vector3(tileX, 0, 0);
         }
 
-        if (Player.transform.position.y > TileY/2)
+        if (Player.transform.position.y > tileY/2)
         {
             GameEvents.current.PlayerMovesUp();
-            Player.transform.position = Player.transform.position - new Vector3(0, TileY, 0);
+            Player.transform.position = Player.transform.position - new Vector3(0, tileY, 0);
         }
     }
 }
