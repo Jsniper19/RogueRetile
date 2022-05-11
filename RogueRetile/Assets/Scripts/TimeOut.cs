@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class TimeOut : MonoBehaviour
 {
-    public float killTime;
+    public PlayerController PCon;
     public TreadmillTiles TreadmillTiles;
     void Start()
     {
+        PCon = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         StartCoroutine(TimeToDie());
     }
 
     IEnumerator TimeToDie()
     {
-        yield return new WaitForSeconds(killTime);
+        yield return new WaitForSeconds(PCon.slashTime);
         TreadmillTiles.DIE();
     }
 }

@@ -4,77 +4,136 @@ using UnityEngine;
 
 public class SpawnTreadmillTile : MonoBehaviour
 {
+    public PlayerController PCon;
     public List<GameObject> Tiles = new List<GameObject>();
     public int selectedNumber;
 
-    public float First = 5;
-    public float Second = 10;
-    public float Third = 20;
+    [Header("Enemy")]
+    public float first;
+    [Header("wall")]
+    public float second;
+    [Header("chest")]
+    public float third;
+    [Header("enemy2")]
+    public float fourth;
+    public float fifth;
 
-    public float TileX;
-    public float TileY;
+    public float tileX;
+    public float tileY;
+
+    public int stage;
 
     private void Start()
     {
+        PCon = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         GameEvents.current.onPlayerMovesDown += SpawnBottom;
         GameEvents.current.onPlayerMovesUp += SpawnTop;
         GameEvents.current.onPlayerMovesLeft += SpawnRight;
         GameEvents.current.onPlayerMovesRight += SpawnLeft;
     }
 
+    private void Update()
+    {
+        if (PCon.progress < 100)
+        { stage = 1; }
+        else if (PCon.progress < 200)
+        { stage = 2; }
+
+
+
+        if (stage == 1)
+        {
+            if (first < 100 - (second + third + fourth + fifth))
+            {
+                first = PCon.progress;
+            }
+            else
+            {
+                first = 100 - (second + third + fourth + fifth);
+            }
+        }
+        else if (stage == 2)
+        {
+            if (first < 100 - (second + third + fourth + fifth))
+            {
+                first = PCon.progress - 90;
+            }
+            else
+            {
+                first = 100 - (second + third + fourth + fifth);
+            }
+            if (fourth < 30)
+            {
+                fourth = PCon.progress / 50;
+            }
+            else
+            {
+                fourth = 30;
+            }
+        }
+    }
+
     void SpawnTop()
     {
-        Debug.Log("Top");
+        //Debug.Log("Top");
 
         for (int x = -3; x < 4; x++)
         {
             SelectTile();
-            Instantiate(Tiles[selectedNumber], new Vector3(x * TileX, 3 * TileY), Quaternion.identity);
+            Instantiate(Tiles[selectedNumber], new Vector3(x * tileX, 3 * tileY), Quaternion.identity);
         }
     }
     void SpawnBottom()
     {
-        Debug.Log("Bottom");
+        //Debug.Log("Bottom");
         for (int x = -3; x < 4; x++)
         {
             SelectTile();
-            Instantiate(Tiles[selectedNumber], new Vector3(x * TileX, -3 * TileY), Quaternion.identity);
+            Instantiate(Tiles[selectedNumber], new Vector3(x * tileX, -3 * tileY), Quaternion.identity);
         }
     }
     void SpawnLeft()
     {
-        Debug.Log("Left");
+        //Debug.Log("Left");
 
         for (int y = -3; y < 4; y++)
         {
             SelectTile();
-            Instantiate(Tiles[selectedNumber], new Vector3(3 * TileX, y * TileY), Quaternion.identity);
+            Instantiate(Tiles[selectedNumber], new Vector3(3 * tileX, y * tileY), Quaternion.identity);
         }
     }
     void SpawnRight()
     {
-        Debug.Log("Right");
+        //Debug.Log("Right");
         for (int y = -3; y < 4; y++)
         {
             SelectTile();
-            Instantiate(Tiles[selectedNumber], new Vector3(-3 * TileX, y * TileY), Quaternion.identity);
+            Instantiate(Tiles[selectedNumber], new Vector3(-3 * tileX, y * tileY), Quaternion.identity);
         }
     }
 
     void SelectTile()
     {
         var RandNum = Random.Range(0, 100);
-        if (RandNum < First)
+        if (RandNum < first)
         {
             selectedNumber = 1;
         }
-        else if (RandNum > First && RandNum < First + Second)
+        else if (RandNum > first && RandNum < first + second)
         {
             selectedNumber = 2;
         }
-        else if (RandNum > First + Second && RandNum < First + Second + Third)
+        else if (RandNum > first + second && RandNum < first + second + third)
         {
             selectedNumber = 3;
+        }
+        else if (RandNum > first + second + third && RandNum < first + second +third + fourth)
+        {
+            selectedNumber = 4;
+        }
+        else if (RandNum > first + second + third + fourth && RandNum < first + second + third + fourth + fifth)
+        {
+            selectedNumber = 5;
         }
         else
         {

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3295488642538566019}
   - component: {fileID: 3295488642538566017}
   m_Layer: 0
-  m_Name: TreadmillTile4
+  m_Name: Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,4 +96,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PCT: {fileID: 0}
+  UIM: {fileID: 0}
+  PCon: {fileID: 0}
   isTile: 1
+  tileBreakTime: 5
+  tileBreakTimeCurrent: 0
