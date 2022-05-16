@@ -99,8 +99,9 @@ MonoBehaviour:
   PCT: {fileID: 0}
   UIM: {fileID: 0}
   PCon: {fileID: 0}
+  Enemy: {fileID: 8328049635155344795, guid: 04fa8ed4e55802c478ef93a99f6ee1d6, type: 3}
   isTile: 1
-  tileBreakTime: 5
+  tileBreakTime: 3
   tileBreakTimeCurrent: 0
   isEgg: 1
   isHatched: 0

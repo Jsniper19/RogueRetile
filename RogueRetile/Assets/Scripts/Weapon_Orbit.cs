@@ -9,8 +9,6 @@ public class Weapon_Orbit : MonoBehaviour
     public GameObject Pivot;
 
     public float orbitSpeed;
-    public float startSpeed;
-    public float modSpeed;
     public float Size;
     public float modSize;
     public float startSize;
@@ -21,7 +19,6 @@ public class Weapon_Orbit : MonoBehaviour
     private void Start()
     {
         PCon = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        orbitSpeed = startSpeed;
         Size = startSize;
         damage = startDamage;
     }
@@ -32,9 +29,9 @@ public class Weapon_Orbit : MonoBehaviour
     }
     public void equip()
     {
-        orbitSpeed = startSpeed + modSpeed * PCon.upgrades;
         Size = startSize + modSize * PCon.upgrades;
         damage = startDamage + modDamage * PCon.upgrades;
         DE.damage = damage;
+        Pivot.transform.localScale = new Vector3(Size, Size, 1);
     }
 }

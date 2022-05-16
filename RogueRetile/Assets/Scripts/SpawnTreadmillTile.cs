@@ -14,6 +14,8 @@ public class SpawnTreadmillTile : MonoBehaviour
     public float second;
     [Header("chest")]
     public float third;
+    public float third2;
+    public float third3;
     [Header("enemy2")]
     public float fourth;
     [Header("enemy3")]
@@ -43,7 +45,6 @@ public class SpawnTreadmillTile : MonoBehaviour
         { stage = 3; }
 
 
-
         if (stage == 1)
         {
             if (first < 100 - (second + third + fourth + fifth))
@@ -57,6 +58,7 @@ public class SpawnTreadmillTile : MonoBehaviour
         }
         else if (stage == 2)
         {
+            third = third2;
             if (first < 100 - (second + third + fourth + fifth))
             {
                 first = PCon.progress - 90;
@@ -76,6 +78,7 @@ public class SpawnTreadmillTile : MonoBehaviour
         }
         else if (stage == 3)
         {
+            third = third3;
             if (first < 100 - (second + third + fourth + fifth))
             {
                 first = PCon.progress - 90;
@@ -92,7 +95,7 @@ public class SpawnTreadmillTile : MonoBehaviour
             {
                 fourth = 30;
             }
-            if (fifth < 20)
+            if (fifth < 30)
             {
                 fifth = PCon.progress / 100;
             }

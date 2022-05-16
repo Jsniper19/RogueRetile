@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public GameObject sword;
     public GameObject pivot;
     public GameObject Orbit;
+    public GameObject Ice;
     public GameObject Blast;
 
     private void Start()
@@ -84,9 +85,9 @@ public class PlayerController : MonoBehaviour
         else { pivot.SetActive(false); }
         if (wep == 2)
         {
-            Blast.SetActive(true);
-            Blast.GetComponent<Weapon_Blast>().equip();
+            Ice.SetActive(true);
+            Ice.GetComponent<Weapon_Blast>().equip();
         }
-        else { Blast.SetActive(false); }
+        else { Ice.SetActive(false); }
     }
 }

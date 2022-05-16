@@ -99,9 +99,12 @@ MonoBehaviour:
   PCT: {fileID: 0}
   UIM: {fileID: 0}
   PCon: {fileID: 0}
+  Enemy: {fileID: 0}
   isTile: 1
-  tileBreakTime: 5
+  tileBreakTime: 3
   tileBreakTimeCurrent: 0
+  isEgg: 0
+  isHatched: 0
 --- !u!114 &7578721858116032770
 MonoBehaviour:
   m_ObjectHideFlags: 0

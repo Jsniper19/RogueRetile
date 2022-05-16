@@ -40,15 +40,10 @@ public class ChestInteraction : MonoBehaviour
     void AddStat()
     {
         selectedStat = Random.Range(0, 6);
-        if (selectedStat == 0)
+        if (selectedStat < 2)
         {
             PCon.health += healthBuff;
             Debug.Log("Health");
-        }
-        if (selectedStat == 1)
-        {
-            PCon.armour += armourBuff;
-            Debug.Log("Armour");
         }
         if (selectedStat >= 2)
         {

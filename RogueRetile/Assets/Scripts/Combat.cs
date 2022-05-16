@@ -18,15 +18,11 @@ public class Combat : MonoBehaviour
     public float modSize;
     public float startSize;
     public float cooldown;
-    public float modCool;
-    public float startCool;
-    public float minCooldown;
 
     private void Start()
     {
         damage = startDamage;
         slashSize = startSize;
-        cooldown = startCool;
     }
 
     private void Update()
@@ -37,14 +33,10 @@ public class Combat : MonoBehaviour
         temp.x = 0f;
         temp.y = 0f;
         transform.rotation = Quaternion.Euler(temp);
-
-        if (Input.GetMouseButtonDown(0))
-        {
             if (cool)
             {
                 StartCoroutine(AttackCoroutine());
             }
-        }
     }
 
     IEnumerator AttackCoroutine()
@@ -65,12 +57,9 @@ public class Combat : MonoBehaviour
 
     public void equip()
     {
-        if (cooldown < minCooldown)
-        { cooldown = startCool - modCool * PCon.upgrades; }
-        else
-        { cooldown = minCooldown; }
         slashSize = startSize + modSize * PCon.upgrades;
         damage = startDamage + modDamage * PCon.upgrades;
-        cool = true;
+        StopAllCoroutines();
+        StartCoroutine(AttackCoroutine());
     }
 }

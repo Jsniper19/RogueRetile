@@ -7,11 +7,8 @@ public class EnemyHatching : MonoBehaviour
     public TreadmillTiles TT;
     public GameObject Enemy;
 
-    private void Update()
+    public void Hatch()
     {
-        if (TT.isHatched)
-        {
             Instantiate(Enemy, transform.position, Quaternion.identity);
-        }
     }
 }

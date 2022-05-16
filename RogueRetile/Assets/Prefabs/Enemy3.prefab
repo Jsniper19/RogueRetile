@@ -101,6 +101,7 @@ MonoBehaviour:
   PCT: {fileID: 0}
   UIM: {fileID: 0}
   PCon: {fileID: 0}
+  Enemy: {fileID: 0}
   isTile: 0
   tileBreakTime: 0
   tileBreakTimeCurrent: 0
@@ -120,12 +121,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TT: {fileID: 6604502542583912211}
   PCon: {fileID: 0}
-  RB: {fileID: 2171047924389620822, guid: d5f1dde4be52c224a8fc0c113940fa2e, type: 3}
-  enemySpeed: 1
+  RB: {fileID: 7008618295459867189}
+  enemySpeed: 0
+  acceleration: 0.3
+  maxEnemySpeed: 3
   baseDamage: 100
   damage: 5
   health: 5
-  blastForce: 10
+  blastForce: 8
+  inversePower: 5
 --- !u!58 &973927731233933700
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -155,7 +159,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}

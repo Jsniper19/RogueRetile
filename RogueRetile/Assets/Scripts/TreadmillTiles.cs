@@ -7,6 +7,7 @@ public class TreadmillTiles : MonoBehaviour
     public PlayerController_Treadmill PCT;
     public UIManager UIM;
     public PlayerController PCon;
+    public GameObject Enemy = null;
     public bool isTile;
     public float tileBreakTime;
     public float tileBreakTimeCurrent;
@@ -80,8 +81,11 @@ public class TreadmillTiles : MonoBehaviour
         GameEvents.current.onPlayerMovesDown -= MoveDown;
         GameEvents.current.onPlayerMovesLeft -= MoveLeft;
         GameEvents.current.onPlayerMovesRight -= MoveRight;
-        if (isEgg)
-        { isHatched = true; }
+        if (Enemy != null)
+        {
+            if (isEgg)
+            { Instantiate(Enemy, transform.position, Quaternion.identity); }
+        }
         PCon.progress += PCon.progressStep;
         Destroy(gameObject);
     }
