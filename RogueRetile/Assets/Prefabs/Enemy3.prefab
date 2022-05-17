@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 4
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
   m_Color: {r: 0.7264151, g: 0.18110946, b: 0.065103225, a: 1}
   m_FlipX: 0
@@ -128,8 +128,9 @@ MonoBehaviour:
   baseDamage: 100
   damage: 5
   health: 5
-  blastForce: 8
+  blastForce: 0.1
   inversePower: 5
+  icePower: 4
 --- !u!58 &973927731233933700
 CircleCollider2D:
   m_ObjectHideFlags: 0

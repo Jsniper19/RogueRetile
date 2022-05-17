@@ -23,11 +23,11 @@ public class Weapon_Orbit : MonoBehaviour
         damage = startDamage;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         Pivot.transform.Rotate(0, 0, orbitSpeed);
     }
-    public void equip()
+    public void Equip()
     {
         Size = startSize + modSize * PCon.upgrades;
         damage = startDamage + modDamage * PCon.upgrades;

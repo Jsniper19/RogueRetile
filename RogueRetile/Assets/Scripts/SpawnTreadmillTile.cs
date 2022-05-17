@@ -29,13 +29,13 @@ public class SpawnTreadmillTile : MonoBehaviour
     private void Start()
     {
         PCon = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        GameEvents.current.onPlayerMovesDown += SpawnBottom;
-        GameEvents.current.onPlayerMovesUp += SpawnTop;
-        GameEvents.current.onPlayerMovesLeft += SpawnRight;
-        GameEvents.current.onPlayerMovesRight += SpawnLeft;
+        GameEvents.current.OnPlayerMovesDown += SpawnBottom;
+        GameEvents.current.OnPlayerMovesUp += SpawnTop;
+        GameEvents.current.OnPlayerMovesLeft += SpawnRight;
+        GameEvents.current.OnPlayerMovesRight += SpawnLeft;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (PCon.progress < 100)
         { stage = 1; }
@@ -69,7 +69,7 @@ public class SpawnTreadmillTile : MonoBehaviour
             }
             if (fourth < 30)
             {
-                fourth = PCon.progress / 50;
+                fourth = PCon.progress / 15;
             }
             else
             {
@@ -87,17 +87,17 @@ public class SpawnTreadmillTile : MonoBehaviour
             {
                 first = 100 - (second + third + fourth + fifth);
             }
-            if (fourth < 50)
+            if (fourth < 30)
             {
-                fourth = PCon.progress / 50;
+                fourth = PCon.progress / 10;
             }
             else
             {
                 fourth = 30;
             }
-            if (fifth < 30)
+            if (fifth < 20)
             {
-                fifth = PCon.progress / 100;
+                fifth = PCon.progress / 20;
             }
             else
             {

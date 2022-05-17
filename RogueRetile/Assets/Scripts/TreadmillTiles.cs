@@ -13,13 +13,14 @@ public class TreadmillTiles : MonoBehaviour
     public float tileBreakTimeCurrent;
     public bool isEgg;
     public bool isHatched;
+    public bool isFirst;
 
     private void Start()
     {
-        GameEvents.current.onPlayerMovesLeft += MoveLeft;
-        GameEvents.current.onPlayerMovesRight += MoveRight;
-        GameEvents.current.onPlayerMovesUp += MoveUp;
-        GameEvents.current.onPlayerMovesDown += MoveDown;
+        GameEvents.current.OnPlayerMovesLeft += MoveLeft;
+        GameEvents.current.OnPlayerMovesRight += MoveRight;
+        GameEvents.current.OnPlayerMovesUp += MoveUp;
+        GameEvents.current.OnPlayerMovesDown += MoveDown;
 
         PCT = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController_Treadmill>();
         PCon = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
@@ -50,7 +51,7 @@ public class TreadmillTiles : MonoBehaviour
 
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (isTile)
         {
@@ -58,29 +59,32 @@ public class TreadmillTiles : MonoBehaviour
             {
                 DIE();
             }
-            if (transform.position == Vector3.zero)
+            if (!isFirst)
             {
-                tileBreakTimeCurrent -= Time.deltaTime;
-                UIM.TileStrength.text = "time to break " + tileBreakTimeCurrent.ToString();
-                if (tileBreakTimeCurrent <= 0)
+                if (transform.position == Vector3.zero)
                 {
-                    PCon.alive = false;
-                    DIE();
+                    tileBreakTimeCurrent -= Time.deltaTime;
+                    UIM.tileStrength = tileBreakTimeCurrent;
+                    if (tileBreakTimeCurrent <= 0)
+                    {
+                        PCon.alive = false;
+                        DIE();
+                    }
                 }
-            }
-            else
-            {
-                tileBreakTimeCurrent = tileBreakTime;
+                else
+                {
+                    tileBreakTimeCurrent = tileBreakTime;
+                }
             }
         }
     }
 
     public void DIE()
     {
-        GameEvents.current.onPlayerMovesUp -= MoveUp;
-        GameEvents.current.onPlayerMovesDown -= MoveDown;
-        GameEvents.current.onPlayerMovesLeft -= MoveLeft;
-        GameEvents.current.onPlayerMovesRight -= MoveRight;
+        GameEvents.current.OnPlayerMovesUp -= MoveUp;
+        GameEvents.current.OnPlayerMovesDown -= MoveDown;
+        GameEvents.current.OnPlayerMovesLeft -= MoveLeft;
+        GameEvents.current.OnPlayerMovesRight -= MoveRight;
         if (Enemy != null)
         {
             if (isEgg)

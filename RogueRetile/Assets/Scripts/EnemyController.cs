@@ -15,6 +15,8 @@ public class EnemyController : MonoBehaviour
     public float health;
     public float blastForce;
     public float inversePower;
+    public float icePower;
+    private float boost;
 
     private void Start()
     {
@@ -22,7 +24,7 @@ public class EnemyController : MonoBehaviour
         health += PCon.progress / inversePower;
         enemySpeed = maxEnemySpeed;
     }
-    private void Update()
+    private void FixedUpdate()
     {
         transform.position = Vector3.MoveTowards(transform.position, PCon.transform.position, enemySpeed * Time.deltaTime);
         damage = baseDamage + PCon.progress / inversePower;
@@ -30,7 +32,8 @@ public class EnemyController : MonoBehaviour
         {
         TT.DIE();
         }
-        enemySpeed += acceleration * Time.deltaTime;
+        boost += acceleration * Time.deltaTime;
+        enemySpeed = maxEnemySpeed + boost;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -49,7 +52,8 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.CompareTag("Ice"))
         {
-            enemySpeed = maxEnemySpeed / 4;
+            enemySpeed = (maxEnemySpeed + boost) / icePower;
+            health -= collision.gameObject.GetComponent<DamageEnemy>().damage * Time.deltaTime;
         }
     }
 
@@ -65,7 +69,7 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-        PCon.health -= (damage - 1/20 * PCon.armour) * Time.deltaTime;
+        PCon.health -= (damage) * Time.deltaTime;
         }
     }
 }

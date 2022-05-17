@@ -5,6 +5,7 @@ using UnityEngine;
 public class Weapon_Blast : MonoBehaviour
 {
     public GameObject BlastArea;
+    public GameObject Ice;
     public PlayerController PCon;
     public DamageEnemy DE;
     public bool COOL;
@@ -19,15 +20,15 @@ public class Weapon_Blast : MonoBehaviour
     public float modDamage;
 
 
-    // Start is called before the first frame update
+    // Start is called before the first frame FixedUpdate
     void Start()
     {
         Size = startSize;
         damage = startDamage;
     }
 
-    // Update is called once per frame
-    void Update()
+    // FixedUpdate is called once per frame
+    void FixedUpdate()
     {
         if (COOL)
         {
@@ -46,12 +47,13 @@ public class Weapon_Blast : MonoBehaviour
         COOL = true;
     }
 
-    public void equip()
+    public void Equip()
     {
         Size = startSize + modSize * PCon.upgrades;
         gameObject.transform.localScale = new Vector3(Size, Size, 1);
         damage = startDamage + modDamage * PCon.upgrades;
         DE.damage = damage;
+        Ice.GetComponent<DamageEnemy>().damage = damage / 8;
         StopAllCoroutines();
         StartCoroutine(Blast());
     }

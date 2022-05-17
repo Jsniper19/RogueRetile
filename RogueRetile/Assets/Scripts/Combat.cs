@@ -25,9 +25,10 @@ public class Combat : MonoBehaviour
         slashSize = startSize;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         Target = Cam.ScreenToWorldPoint(Input.mousePosition);
+        //Target = PCon.AimTarget;
         gameObject.transform.LookAt(Target, Vector3.forward);
         Vector3 temp = -transform.rotation.eulerAngles;
         temp.x = 0f;
@@ -55,7 +56,7 @@ public class Combat : MonoBehaviour
         clone.GetComponent<DamageEnemy>().damage = damage;
     }
 
-    public void equip()
+    public void Equip()
     {
         slashSize = startSize + modSize * PCon.upgrades;
         damage = startDamage + modDamage * PCon.upgrades;

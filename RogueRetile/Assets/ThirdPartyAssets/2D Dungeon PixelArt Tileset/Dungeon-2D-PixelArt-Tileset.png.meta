@@ -95,6 +95,15 @@ TextureImporter:
   - first:
       213: -7265388314283571386
     second: Bottom_Right_Dungeon_Door_Opened
+  - first:
+      213: -601463775804797060
+    second: Floor_Hole
+  - first:
+      213: 7295210160861260362
+    second: Floor_Burnt
+  - first:
+      213: -6686182155502001053
+    second: Floor_Egg
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -116,6 +125,7 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -147,9 +157,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -826,6 +839,69 @@ TextureImporter:
       bones: []
       spriteID: 6478ad362d72c2b90800000000000000
       internalID: -7265388314283571386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Hole
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 86
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7fc3e1f1eb27a7f0800000000000000
+      internalID: -601463775804797060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Burnt
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 106
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4aa4f75dfacd3560800000000000000
+      internalID: 7295210160861260362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Egg
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 104
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3646fb521c8e533a0800000000000000
+      internalID: -6686182155502001053
       vertices: []
       indices: 
       edges: []

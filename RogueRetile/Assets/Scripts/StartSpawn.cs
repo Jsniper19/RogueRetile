@@ -13,7 +13,8 @@ public class StartSpawn : MonoBehaviour
         {
             for (int y = -3; y < 4; y++)
             {
-                Instantiate(Tile, new Vector3(x*PCT.tileX, y*PCT.tileY), Quaternion.identity);
+                if (x != 0 || y != 0)
+                    { Instantiate(Tile, new Vector3(x * PCT.tileX, y * PCT.tileY), Quaternion.identity); }
             }
         }
     }

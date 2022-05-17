@@ -12,39 +12,39 @@ public class GameEvents : MonoBehaviour
         current = this;
     }
 
-    public event Action onPlayerMovesLeft;
+    public event Action OnPlayerMovesLeft;
     public void PlayerMovesLeft()
     {
-        if (onPlayerMovesLeft != null)
+        if (OnPlayerMovesLeft != null)
         {
-            onPlayerMovesLeft();
+            OnPlayerMovesLeft();
         }
     }
 
-    public event Action onPlayerMovesRight;
+    public event Action OnPlayerMovesRight;
     public void PlayerMovesRight()
     {
-        if (onPlayerMovesRight != null)
+        if (OnPlayerMovesRight != null)
         {
-            onPlayerMovesRight();
+            OnPlayerMovesRight();
         }
     }
 
-    public event Action onPlayerMovesUp;
+    public event Action OnPlayerMovesUp;
     public void PlayerMovesUp()
     {
-        if (onPlayerMovesUp != null)
+        if (OnPlayerMovesUp != null)
         {
-            onPlayerMovesUp();
+            OnPlayerMovesUp();
         }
     }
 
-    public event Action onPlayerMovesDown;
+    public event Action OnPlayerMovesDown;
     public void PlayerMovesDown()
     {
-        if (onPlayerMovesDown != null)
+        if (OnPlayerMovesDown != null)
         {
-            onPlayerMovesDown();
+            OnPlayerMovesDown();
         }
     }
 

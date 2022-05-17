@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D Rb;
     public Vector3 Target;
+    //public Vector3 AimTarget;
 
     //upgradeable stats
     public float health;
@@ -32,7 +33,7 @@ public class PlayerController : MonoBehaviour
         Target = transform.position;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (health <= 0)
         {
@@ -64,6 +65,7 @@ public class PlayerController : MonoBehaviour
             }
 
             transform.position = Vector2.MoveTowards(transform.position, Target, speed * Time.deltaTime);
+            //AimTarget = Target;
             //Rb.AddForce((transform.position + Target) * speed, ForceMode2D.Force);
         }
     }
@@ -74,19 +76,19 @@ public class PlayerController : MonoBehaviour
         if (wep == 0)
         {
             sword.SetActive(true);
-            sword.GetComponent<Combat>().equip();
+            sword.GetComponent<Combat>().Equip();
         }
         else { sword.SetActive(false); }
         if (wep == 1)
         {
             pivot.SetActive(true);
-            Orbit.GetComponent<Weapon_Orbit>().equip();
+            Orbit.GetComponent<Weapon_Orbit>().Equip();
         }
         else { pivot.SetActive(false); }
         if (wep == 2)
         {
             Ice.SetActive(true);
-            Ice.GetComponent<Weapon_Blast>().equip();
+            Ice.GetComponent<Weapon_Blast>().Equip();
         }
         else { Ice.SetActive(false); }
     }

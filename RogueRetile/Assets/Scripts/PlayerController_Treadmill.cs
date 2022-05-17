@@ -8,7 +8,7 @@ public class PlayerController_Treadmill : MonoBehaviour
     public float tileX;
     public float tileY;
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (Player.transform.position.x < -tileX/2)
         {
