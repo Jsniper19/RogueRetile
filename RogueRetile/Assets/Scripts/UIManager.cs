@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour
     public float maxHealth;
     public float tileStrength;
     public GameObject Tile;
-    public SpriteRenderer SR;
+    public Color colour;
 
     private void Start()
     {
@@ -22,6 +22,7 @@ public class UIManager : MonoBehaviour
         Health.maxValue = maxHealth;
         Health.gameObject.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, maxHealth);
 
-        //SR.color.a = 255 / 3 * tileStrength;
+        colour.a = (1f / 3f) * (-tileStrength + 3);
+        Tile.GetComponent<SpriteRenderer>().material.color = colour;
     }
 }

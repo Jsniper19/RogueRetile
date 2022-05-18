@@ -76,6 +76,10 @@ public class TreadmillTiles : MonoBehaviour
                     tileBreakTimeCurrent = tileBreakTime;
                 }
             }
+            else
+            {
+                UIM.tileStrength = tileBreakTimeCurrent;
+            }
         }
     }
 
