@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -27,6 +28,10 @@ public class PlayerController : MonoBehaviour
     public GameObject Orbit;
     public GameObject Ice;
     public GameObject Blast;
+    public GameObject DeathScreen;
+    public Text Score;
+    public GameObject UI;
+    public int wep;
 
     private void Start()
     {
@@ -39,6 +44,7 @@ public class PlayerController : MonoBehaviour
         {
             alive = false;
             Rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            Death();
         }
         if (alive)
         {
@@ -72,7 +78,6 @@ public class PlayerController : MonoBehaviour
 
     public void WeaponSwap()
     {
-        int wep = Random.Range(0, 3);
         if (wep == 0)
         {
             sword.SetActive(true);
@@ -91,5 +96,16 @@ public class PlayerController : MonoBehaviour
             Ice.GetComponent<Weapon_Blast>().Equip();
         }
         else { Ice.SetActive(false); }
+    }
+
+    void Death()
+    {
+        float finalScore = Mathf.Round(progress);
+        sword.SetActive (false);
+        pivot.SetActive (false);
+        Ice.SetActive (false);
+        UI.SetActive (false);
+        DeathScreen.SetActive(true);
+        Score.text = "Score " + finalScore;
     }
 }

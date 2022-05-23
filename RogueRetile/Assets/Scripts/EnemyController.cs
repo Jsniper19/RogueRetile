@@ -55,6 +55,10 @@ public class EnemyController : MonoBehaviour
             enemySpeed = (maxEnemySpeed + boost) / icePower;
             health -= collision.gameObject.GetComponent<DamageEnemy>().damage * Time.deltaTime;
         }
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PCon.health -= (damage) * Time.deltaTime;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

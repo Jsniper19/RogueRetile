@@ -75,12 +75,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.7264151, g: 0.18110946, b: 0.065103225, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 94a367bd2fd4d7a4c8380b738f0f1b33, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 6.3, y: 6.3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -107,6 +107,7 @@ MonoBehaviour:
   tileBreakTimeCurrent: 0
   isEgg: 0
   isHatched: 0
+  isFirst: 0
 --- !u!114 &6102386071673215404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,14 +124,14 @@ MonoBehaviour:
   PCon: {fileID: 0}
   RB: {fileID: 7008618295459867189}
   enemySpeed: 0
-  acceleration: 0.3
+  acceleration: 0.4
   maxEnemySpeed: 3
   baseDamage: 100
   damage: 5
-  health: 5
+  health: 6
   blastForce: 0.1
-  inversePower: 5
-  icePower: 4
+  inversePower: 4
+  icePower: 3
 --- !u!58 &973927731233933700
 CircleCollider2D:
   m_ObjectHideFlags: 0

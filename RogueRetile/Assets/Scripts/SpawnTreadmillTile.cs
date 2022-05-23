@@ -81,7 +81,7 @@ public class SpawnTreadmillTile : MonoBehaviour
             third = third3;
             if (first < 100 - (second + third + fourth + fifth))
             {
-                first = PCon.progress - 90;
+                first = PCon.progress - 190;
             }
             else
             {
@@ -89,7 +89,7 @@ public class SpawnTreadmillTile : MonoBehaviour
             }
             if (fourth < 30)
             {
-                fourth = PCon.progress / 10;
+                fourth = (PCon.progress - 190) / 10;
             }
             else
             {
@@ -97,7 +97,7 @@ public class SpawnTreadmillTile : MonoBehaviour
             }
             if (fifth < 20)
             {
-                fifth = PCon.progress / 20;
+                fifth = (PCon.progress - 190) / 20;
             }
             else
             {

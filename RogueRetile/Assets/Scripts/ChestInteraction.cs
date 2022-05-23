@@ -6,6 +6,7 @@ public class ChestInteraction : MonoBehaviour
 {
     public GameObject Chest;
     public PlayerController PCon;
+    public ChestCollectionEffects CCE;
 
     private void Start()
     {
@@ -43,12 +44,39 @@ public class ChestInteraction : MonoBehaviour
         if (selectedStat < 2)
         {
             PCon.health += healthBuff;
+            CCE.Collect("health");
             Debug.Log("Health");
         }
         if (selectedStat >= 2)
         {
-            PCon.WeaponSwap();
+            WeaponSwap();
             Debug.Log("Swap Weapon");
         }
+    }
+
+    public void WeaponSwap()
+    {
+        int wep = Random.Range(0, 3);
+        if (wep == 0)
+        {
+            PCon.sword.SetActive(true);
+            PCon.sword.GetComponent<Combat>().Equip();
+            CCE.Collect("sword");
+        }
+        else { PCon.sword.SetActive(false); }
+        if (wep == 1)
+        {
+            PCon.pivot.SetActive(true);
+            PCon.Orbit.GetComponent<Weapon_Orbit>().Equip();
+            CCE.Collect("flail");
+        }
+        else { PCon.pivot.SetActive(false); }
+        if (wep == 2)
+        {
+            PCon.Ice.SetActive(true);
+            PCon.Ice.GetComponent<Weapon_Blast>().Equip();
+            CCE.Collect("blast");
+        }
+        else { PCon.Ice.SetActive(false); }
     }
 }

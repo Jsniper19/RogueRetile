@@ -67,8 +67,9 @@ public class TreadmillTiles : MonoBehaviour
                     UIM.tileStrength = tileBreakTimeCurrent;
                     if (tileBreakTimeCurrent <= 0)
                     {
-                        PCon.alive = false;
+                        PCon.health = 0;
                         DIE();
+                        UIM.tileStrength = tileBreakTime;
                     }
                 }
                 else

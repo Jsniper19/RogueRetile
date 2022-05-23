@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7185040362117420120}
   - component: {fileID: 7185040362117420126}
   - component: {fileID: 7185040362117420121}
+  - component: {fileID: 6075961659658477303}
   - component: {fileID: 4514992958925664198}
   m_Layer: 0
   m_Name: Chest
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 9
   m_Sprite: {fileID: 21300000, guid: 88c4a4d2aabd87d4bb12c0d984c21ec1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -98,11 +99,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Chest: {fileID: 7185040362117420123}
   PCon: {fileID: 0}
+  CCE: {fileID: 6075961659658477303}
   healthBuff: 10
   cooldownBuff: 1.1
   armourBuff: 1
   DamageBuff: 1
   slashSizeBuff: 0.2
+--- !u!114 &6075961659658477303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7185040362117420123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c69d31cd3bb3eeb47acf16f1cbed3a28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PCon: {fileID: 0}
+  UpgradeDescription: {fileID: 2186642108840793712, guid: 10d11a9ed470684408c104b1c7bd928d, type: 3}
+  sword: 
+  flail: 
+  blast: 
+  health: 
 --- !u!61 &4514992958925664198
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -234,3 +254,4 @@ MonoBehaviour:
   tileBreakTimeCurrent: 0
   isEgg: 0
   isHatched: 0
+  isFirst: 0

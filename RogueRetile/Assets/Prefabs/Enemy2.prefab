@@ -107,6 +107,7 @@ MonoBehaviour:
   tileBreakTimeCurrent: 0
   isEgg: 0
   isHatched: 0
+  isFirst: 0
 --- !u!114 &3157734094083219407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,7 +131,7 @@ MonoBehaviour:
   health: 3
   blastForce: 0.1
   inversePower: 10
-  icePower: 4
+  icePower: 3
 --- !u!58 &8279471807027613671
 CircleCollider2D:
   m_ObjectHideFlags: 0

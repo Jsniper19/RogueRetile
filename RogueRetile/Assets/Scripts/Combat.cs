@@ -18,6 +18,7 @@ public class Combat : MonoBehaviour
     public float modSize;
     public float startSize;
     public float cooldown;
+    public float slashTimeModifier;
 
     private void Start()
     {
@@ -60,6 +61,7 @@ public class Combat : MonoBehaviour
     {
         slashSize = startSize + modSize * PCon.upgrades;
         damage = startDamage + modDamage * PCon.upgrades;
+        //PCon.slashTime += slashTimeModifier * PCon.upgrades;
         StopAllCoroutines();
         StartCoroutine(AttackCoroutine());
     }

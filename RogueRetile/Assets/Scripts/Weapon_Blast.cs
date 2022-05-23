@@ -12,9 +12,14 @@ public class Weapon_Blast : MonoBehaviour
     public bool firing;
 
     public float cooldown;
+    public float startCool;
+    public float modCool;
+    public float maxCool;
+
     public float Size;
     public float startSize;
     public float modSize;
+
     public float damage;
     public float startDamage;
     public float modDamage;
@@ -25,6 +30,7 @@ public class Weapon_Blast : MonoBehaviour
     {
         Size = startSize;
         damage = startDamage;
+        cooldown = startCool;
     }
 
     // FixedUpdate is called once per frame
@@ -53,6 +59,14 @@ public class Weapon_Blast : MonoBehaviour
         gameObject.transform.localScale = new Vector3(Size, Size, 1);
         damage = startDamage + modDamage * PCon.upgrades;
         DE.damage = damage;
+
+        if (cooldown < maxCool)
+        { cooldown = cooldown + (modCool * PCon.upgrades); }
+        else
+        {
+            cooldown = maxCool;
+        }
+
         Ice.GetComponent<DamageEnemy>().damage = damage / 8;
         StopAllCoroutines();
         StartCoroutine(Blast());
