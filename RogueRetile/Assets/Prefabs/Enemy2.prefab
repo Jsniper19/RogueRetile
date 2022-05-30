@@ -126,6 +126,7 @@ MonoBehaviour:
   RB: {fileID: 2171047924389620822}
   Freeze: {fileID: 6985633940012276206}
   colour: {r: 1, g: 1, b: 1, a: 0}
+  colourValue: 0
   colourFadeSpeed: 255
   enemySpeed: 0
   acceleration: 0.2
@@ -134,7 +135,7 @@ MonoBehaviour:
   damage: 0
   health: 3
   inversePower: 9
-  icePower: 3
+  icePower: 2
 --- !u!58 &8279471807027613671
 CircleCollider2D:
   m_ObjectHideFlags: 0

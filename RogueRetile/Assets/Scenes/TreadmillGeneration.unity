@@ -2566,7 +2566,7 @@ MonoBehaviour:
   progressStep: 0.04
   alive: 1
   upgrades: 0
-  blastForce: 10
+  blastForce: 20
   sword: {fileID: 1534730854}
   pivot: {fileID: 1713141840}
   Orbit: {fileID: 367387266}
