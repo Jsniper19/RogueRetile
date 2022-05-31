@@ -35,7 +35,7 @@ public class Combat : MonoBehaviour
         temp.x = 0f;
         temp.y = 0f;
         transform.rotation = Quaternion.Euler(temp);
-            if (cool)
+        if (cool)
             {
                 StartCoroutine(AttackCoroutine());
             }

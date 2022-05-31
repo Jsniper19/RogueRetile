@@ -4815,6 +4815,7 @@ GameObject:
   - component: {fileID: 109393498054695835}
   - component: {fileID: 6320156458001721451}
   - component: {fileID: 1963062548948175988}
+  - component: {fileID: -5781022553036303942}
   - component: {fileID: 1452935493595595467}
   - component: {fileID: -3666549180713348381}
   - component: {fileID: 2439341150176112978}
@@ -4907,12 +4908,26 @@ MonoBehaviour:
   UIM: {fileID: 0}
   PCon: {fileID: 0}
   Enemy: {fileID: 0}
-  isTile: 1
+  isTile: 0
   tileBreakTime: 0
   tileBreakTimeCurrent: 0
   isEgg: 0
   isHatched: 0
   isFirst: 0
+--- !u!114 &-5781022553036303942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3678024630671271676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8c233af445a7fd4db17963faa694f25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PCT: {fileID: 0}
+  TT: {fileID: 1963062548948175988}
 --- !u!114 &1452935493595595467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4929,12 +4944,13 @@ MonoBehaviour:
   PCon: {fileID: 0}
   RB: {fileID: 2439341150176112978}
   Freeze: {fileID: 1536257833200081281}
-  colour: {r: 1, g: 1, b: 1, a: 0}
-  colourFadeSpeed: 255
+  SpriteR: {fileID: 0}
+  colourValue: 1
+  colourFadeSpeed: 2
   enemySpeed: 0
   acceleration: 0
   maxEnemySpeed: 2
-  baseDamage: 1
+  baseDamage: 7
   damage: 0
   health: 0.5
   inversePower: 20
@@ -4967,7 +4983,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 3
   m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 0

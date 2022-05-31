@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca52146d890a59d4988f1f5240fcf361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy: {fileID: 932716425060465656, guid: d5f1dde4be52c224a8fc0c113940fa2e, type: 3}
+  Enemy: {fileID: 6746406728359495323, guid: d5f1dde4be52c224a8fc0c113940fa2e, type: 3}
 --- !u!95 &6541727236936371553
 Animator:
   serializedVersion: 3

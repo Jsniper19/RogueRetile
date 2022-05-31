@@ -152,19 +152,19 @@ public class SpawnTreadmillTile : MonoBehaviour
         {
             selectedNumber = 1;
         }
-        else if (RandNum > first && RandNum < first + second)
+        else if (RandNum > first && RandNum <= first + second)
         {
             selectedNumber = 2;
         }
-        else if (RandNum > first + second && RandNum < first + second + third)
+        else if (RandNum > first + second && RandNum <= first + second + third)
         {
             selectedNumber = 3;
         }
-        else if (RandNum > first + second + third && RandNum < first + second +third + fourth)
+        else if (RandNum > first + second + third && RandNum <= first + second +third + fourth)
         {
             selectedNumber = 4;
         }
-        else if (RandNum > first + second + third + fourth && RandNum < first + second + third + fourth + fifth)
+        else if (RandNum > first + second + third + fourth && RandNum <= first + second + third + fourth + fifth)
         {
             selectedNumber = 5;
         }
