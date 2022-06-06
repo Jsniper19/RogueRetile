@@ -43,12 +43,12 @@ public class EnemyController : MonoBehaviour
 
         if (colourValue < 1)
         {
-            SpriteR.color = new Color(1, colourValue, colourValue, 1);
+            SpriteR.color = new Color(1, colourValue, colourValue, SpriteR.color.a);
             colourValue += Time.deltaTime * colourFadeSpeed;
         }
         else
         {
-            SpriteR.color = new Color(1, 1, 1, 1);
+            SpriteR.color = new Color(1, 1, 1, SpriteR.color.a);
             colourValue -= 0;
         }
 
